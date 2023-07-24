@@ -2,10 +2,12 @@ import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
 import {
   IconInfo,
+  IconWallet,
   ImegeMemaMask,
   InfoMetaMask,
   LinkDescr,
   LinkMetaMask,
+  LinkToWallet,
   MetaMaskDescr,
   OverlayModal,
   WrapperModal,
@@ -32,7 +34,6 @@ function ModalWallet({ isOpenModal, setIsOpenModal }) {
             <MetaMaskDescr>
               To continue working with the wallet, you need to install the
               <LinkDescr
-                onClick={() => setIsOpenModal(false)}
                 href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=uk"
                 target="_blank"
               >
@@ -43,6 +44,12 @@ function ModalWallet({ isOpenModal, setIsOpenModal }) {
               <IconInfo />
               <InfoMetaMask>What do I need MetaMask</InfoMetaMask>
             </LinkMetaMask>
+            <LinkToWallet
+              onClick={() => setIsOpenModal(false)}
+              href="http://localhost:5173/"
+            >
+              <IconWallet />I installed the extension MetaMask
+            </LinkToWallet>
           </WrapperModal>
         </OverlayModal>,
         modalRoot

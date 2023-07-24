@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { BsSkipForward } from "react-icons/bs";
+import { BsRocketTakeoffFill } from "react-icons/bs";
 
 export const OverlayModal = styled.div`
   position: fixed;
@@ -41,7 +42,7 @@ export const InfoMetaMask = styled.h4`
   text-align: center;
 
   @media (min-width: 768px) {
-    font-size: 24px;
+    font-size: 18px;
   }
 `;
 export const MetaMaskDescr = styled.p`
@@ -61,7 +62,7 @@ export const MetaMaskDescr = styled.p`
 `;
 export const LinkDescr = styled.a`
   margin-left: 10px;
-  color: blue;
+  color: red;
   cursor: pointer;
 
   @media (min-width: 768px) {
@@ -79,8 +80,27 @@ export const LinkMetaMask = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #2a2a2a;
+  color: blue;
   cursor: pointer;
+  margin-bottom: 20px;
+
+  &:hover {
+    color: green;
+  }
+`;
+export const LinkToWallet = styled.a`
+  color: red;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 22px;
+  }
 
   &:hover {
     color: green;
@@ -90,4 +110,10 @@ export const IconInfo = styled(BsSkipForward)`
   width: 24px;
   height: 24px;
   margin-right: 10px;
+`;
+export const IconWallet = styled(BsRocketTakeoffFill)`
+  width: 20px;
+  height: 20px;
+  margin-right: 7px;
+  color: red;
 `;

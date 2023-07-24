@@ -78,6 +78,16 @@ function WalletForm() {
               <Button
                 type="submit"
                 variant="contained"
+                sx={{
+                  backgroundColor:
+                    buttonInfoText === "Connect Wallet" ? "#1976d2" : "#2E8B57",
+                  "&:hover": {
+                    backgroundColor:
+                      buttonInfoText === "Connect Wallet"
+                        ? "#135293"
+                        : "#1C704B",
+                  },
+                }}
                 onClick={handleConnectWallet}
               >
                 {buttonInfoText}
