@@ -9,8 +9,11 @@ function Footer() {
   return (
     <section>
       <FooterContainer>
-        <FooterDescr>Designed in summer 2023</FooterDescr>
-        <LinkGit>
+        <FooterDescr>Designed Vladimir Dyadenko in summer 2023</FooterDescr>
+        <LinkGit
+          href="https://github.com/VladDyadenko/my-wallet-app"
+          target="_blank"
+        >
           <IconGit />
         </LinkGit>
       </FooterContainer>
