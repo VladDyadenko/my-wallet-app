@@ -12,8 +12,6 @@ export const getBalance = async (account) => {
     method: "eth_getBalance",
     params: [account[0]],
   });
-  console.log("ethers.utils ", ethers.utils);
-  console.log("ethers ", ethers);
-  const res = ethers.utils.formatUnits(balance, "ether");
+  const res = ethers.formatUnits(balance, "ether");
   return res;
 };

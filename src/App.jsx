@@ -8,10 +8,6 @@ function App() {
   const [walletAddress, setWalletAddress] = useState("Connect Mask");
   const [walletBalance, setWalletBalance] = useState("");
 
-  console.log("account ", account);
-  console.log("walletAddress ", walletAddress);
-  console.log("walletBalance ", walletBalance);
-
   return (
     <>
       <ApiContext.Provider

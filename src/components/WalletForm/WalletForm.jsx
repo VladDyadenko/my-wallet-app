@@ -1,79 +1,81 @@
 import { Button, TextField } from "@mui/material";
 import { Form, FormContainer, WalletTitle } from "./WalletForm.styled";
-import { useEffect, useState } from "react";
-import ModalWallet from "../ModalWallet/ModalWallet";
-// import { ethers } from "ethers";
+import { useState } from "react";
+import { sendEther } from "../../utils/API/etherTransaction";
+import { isAddressValid, isChecksumValid } from "../../utils/API/validation";
+import { Audio } from "react-loader-spinner";
 
 function WalletForm() {
-  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [receiverAddress, setReceiverAddress] = useState("");
+  const [amount, setAmount] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    if (typeof window.ethereum === "undefined") {
-      setIsOpenModal(true);
-    } else {
-      setIsOpenModal(false);
-    }
-  }, []);
+  const handleTransfer = async (e) => {
+    setIsLoading(true);
+    e.preventDefault();
+    isAddressValid(receiverAddress);
+    isChecksumValid(receiverAddress);
+    await sendEther(amount, receiverAddress);
+    setIsLoading(false);
+  };
 
   return (
     <main>
       <section>
         <>
-          {isOpenModal && (
-            <ModalWallet
-              isOpenModal={isOpenModal}
-              setIsOpenModal={setIsOpenModal}
-            />
-          )}
           <WalletTitle>My Wallet </WalletTitle>
           <FormContainer>
             <Form>
               <TextField
                 type="text"
-                name="wallet address"
+                name="amount"
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                //   title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 required
                 size="small"
                 margin="normal"
                 fullWidth={true}
-                //   value={name}
-                //   onChange={handlChange}
-                label="wallet address"
-                placeholder="enter your wallet address"
+                label="amount"
+                placeholder="enter amount"
                 variant="outlined"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
               />
               <TextField
-                type="number"
-                name="wallet balance"
-                //   pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                //   title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                type="text"
+                name="address"
+                pattern="[0-9a-fA-F]{40}"
                 required
                 size="small"
                 margin="normal"
                 fullWidth={true}
-                //   value={name}
-                //   onChange={handlChange}
-                label="wallet balance"
-                //   placeholder="enter your wallet address"
+                value={receiverAddress}
+                onChange={(e) => setReceiverAddress(e.target.value)}
+                label="address"
+                placeholder="enter address"
                 variant="outlined"
               />
               <Button
                 type="submit"
                 variant="contained"
-                // sx={{
-                //   backgroundColor:
-                //     buttonInfoText === "Connect Wallet" ? "#1976d2" : "#2E8B57",
-                //   "&:hover": {
-                //     backgroundColor:
-                //       buttonInfoText === "Connect Wallet"
-                //         ? "#135293"
-                //         : "#1C704B",
-                //   },
-                // }}
-                // onClick={handleConnectWallet}
+                sx={{
+                  textTransform: "capitalize",
+                }}
+                onClick={handleTransfer}
+                disabled={!isAddressValid(receiverAddress)}
               >
-                {/* {buttonInfoText} */}
+                {isLoading ? (
+                  <Audio
+                    height="25"
+                    width="35"
+                    color="#FFFFFF"
+                    ariaLabel="audio-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="wrapper-class"
+                    visible={true}
+                  />
+                ) : (
+                  "Send"
+                )}
               </Button>
             </Form>
           </FormContainer>

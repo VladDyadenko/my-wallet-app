@@ -14,7 +14,7 @@ export const WalletInfoWrapper = styled.div`
   display: flex;
   align-items: center;
   padding: 5px;
-  min-width: 200px;
+
   justify-content: space-between;
   border: 1px solid #2a2a2a;
   border-radius: 8px;
@@ -29,5 +29,5 @@ export const ConnectWrapper = styled.div`
 `;
 export const WalletDescr = styled.span`
   display: inline-block;
-  color: blue;
+  color: #2e8b57;
 `;
