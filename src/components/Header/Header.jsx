@@ -15,7 +15,7 @@ function Header() {
     setAccount,
     // walletAddress,
     // walletBalance,
-    setWalletBalance,
+    // setWalletBalance,
     setWalletAddress,
   } = useContext(ApiContext);
 
@@ -32,6 +32,7 @@ function Header() {
           setWalletAddress(trimmedData);
           console.log(ethers.providers);
           const provider = new ethers.providers.Web3Provider(window.ethereum);
+          console.log(provider);
 
           const etherBalance = await getBalance(data);
           console.log(etherBalance);

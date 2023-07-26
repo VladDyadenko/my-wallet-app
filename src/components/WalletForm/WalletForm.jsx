@@ -6,10 +6,6 @@ import ModalWallet from "../ModalWallet/ModalWallet";
 
 function WalletForm() {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  // const [walletAddress, setWalletAddress] = useState(null);
-  // const [buttonInfoText, setButtonInfoText] = useState("Connect Wallet");
-  // const [walletUserBallans, setWalletUserBallans] = useState(null);
-  // const [provider, setProvider] = useState(null);
 
   useEffect(() => {
     if (typeof window.ethereum === "undefined") {
@@ -18,8 +14,6 @@ function WalletForm() {
       setIsOpenModal(false);
     }
   }, []);
-
-  
 
   return (
     <main>
