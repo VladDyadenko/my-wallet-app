@@ -2,14 +2,14 @@ import { Button, TextField } from "@mui/material";
 import { Form, FormContainer, WalletTitle } from "./WalletForm.styled";
 import { useEffect, useState } from "react";
 import ModalWallet from "../ModalWallet/ModalWallet";
+// import { ethers } from "ethers";
 
 function WalletForm() {
-  const [walletAddress, setWalletAddress] = useState(null);
-  const [buttonInfoText, setButtonInfoText] = useState("Connect Wallet");
   const [isOpenModal, setIsOpenModal] = useState(false);
-
-  console.log(isOpenModal);
-  console.log(walletAddress);
+  // const [walletAddress, setWalletAddress] = useState(null);
+  // const [buttonInfoText, setButtonInfoText] = useState("Connect Wallet");
+  // const [walletUserBallans, setWalletUserBallans] = useState(null);
+  // const [provider, setProvider] = useState(null);
 
   useEffect(() => {
     if (typeof window.ethereum === "undefined") {
@@ -19,18 +19,7 @@ function WalletForm() {
     }
   }, []);
 
-  const handleConnectWallet = () => {
-    window.ethereum
-      .request({ method: "eth_requestAccounts" })
-      .then((accounts) => {
-        const address = accounts[0];
-        setWalletAddress(address);
-        setButtonInfoText("Wallet Connected");
-      })
-      .catch((error) => {
-        console.error("Error connecting wallet:", error);
-      });
-  };
+  
 
   return (
     <main>
@@ -78,19 +67,19 @@ function WalletForm() {
               <Button
                 type="submit"
                 variant="contained"
-                sx={{
-                  backgroundColor:
-                    buttonInfoText === "Connect Wallet" ? "#1976d2" : "#2E8B57",
-                  "&:hover": {
-                    backgroundColor:
-                      buttonInfoText === "Connect Wallet"
-                        ? "#135293"
-                        : "#1C704B",
-                  },
-                }}
-                onClick={handleConnectWallet}
+                // sx={{
+                //   backgroundColor:
+                //     buttonInfoText === "Connect Wallet" ? "#1976d2" : "#2E8B57",
+                //   "&:hover": {
+                //     backgroundColor:
+                //       buttonInfoText === "Connect Wallet"
+                //         ? "#135293"
+                //         : "#1C704B",
+                //   },
+                // }}
+                // onClick={handleConnectWallet}
               >
-                {buttonInfoText}
+                {/* {buttonInfoText} */}
               </Button>
             </Form>
           </FormContainer>

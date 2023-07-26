@@ -18,6 +18,14 @@ export const WalletInfoWrapper = styled.div`
   justify-content: space-between;
   border: 1px solid #2a2a2a;
   border-radius: 8px;
+  margin-right: 15px;
+`;
+export const ConnectWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 5px;
+
+  justify-content: space-between;
 `;
 export const WalletDescr = styled.span`
   display: inline-block;
