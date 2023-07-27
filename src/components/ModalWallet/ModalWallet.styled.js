@@ -60,22 +60,7 @@ export const MetaMaskDescr = styled.p`
     font-size: 22px;
   }
 `;
-export const LinkDescr = styled.a`
-  margin-left: 10px;
-  color: red;
-  cursor: pointer;
 
-  @media (min-width: 768px) {
-    font-size: 18px;
-  }
-  @media (min-width: 1280px) {
-    font-size: 22px;
-  }
-
-  &:hover {
-    color: green;
-  }
-`;
 export const LinkMetaMask = styled.a`
   display: flex;
   align-items: center;

@@ -17,6 +17,8 @@ function WalletForm() {
     isChecksumValid(receiverAddress);
     await sendEther(amount, receiverAddress);
     setIsLoading(false);
+    setReceiverAddress("");
+    setAmount("");
   };
 
   return (
@@ -51,6 +53,12 @@ function WalletForm() {
                 value={receiverAddress}
                 onChange={(e) => setReceiverAddress(e.target.value)}
                 label="address"
+                sx={{
+                  ".css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused important!":
+                    {
+                      color: "#2E8B57",
+                    },
+                }}
                 placeholder="enter address"
                 variant="outlined"
               />
@@ -59,6 +67,10 @@ function WalletForm() {
                 variant="contained"
                 sx={{
                   textTransform: "capitalize",
+                  backgroundColor: "#2E8B57",
+                  "&:hover": {
+                    backgroundColor: "#1C704B",
+                  },
                 }}
                 onClick={handleTransfer}
                 disabled={!isAddressValid(receiverAddress)}

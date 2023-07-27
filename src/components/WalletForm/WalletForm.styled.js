@@ -26,8 +26,9 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid blue;
+  border: 1px solid #2e8b57;
   border-radius: 10px;
+  background-color: #ffffff;
 
   @media (min-width: 768px) {
     width: 600px;

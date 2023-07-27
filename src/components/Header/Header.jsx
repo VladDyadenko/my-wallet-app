@@ -1,7 +1,9 @@
 import { Button } from "@mui/material";
 import {
   ConnectWrapper,
+  HeaderLogo,
   HeroContainer,
+  LogoContainer,
   WalletDescr,
   WalletInfoWrapper,
 } from "./Header.styled";
@@ -37,7 +39,7 @@ function Header() {
         setWalletBalance(etherBalance);
         setIsLoading(false);
         if (!Error) {
-          setWalletAddress("Connect!");
+          setWalletAddress("Connect MetaMask?");
         }
       }
     } catch (err) {
@@ -48,7 +50,10 @@ function Header() {
   return (
     <section>
       <HeroContainer>
-        <p>LOGO</p>
+        <LogoContainer>
+          <HeaderLogo>My wallet pp</HeaderLogo>
+        </LogoContainer>
+
         <ConnectWrapper>
           <WalletInfoWrapper>
             <WalletDescr>
@@ -61,11 +66,15 @@ function Header() {
             size="smole"
             onClick={handleOpenMask}
             sx={{
-              fontSize: "14px",
+              fontSize: "18px",
               backgroundColor: "#2E8B57",
               "&:hover": {
                 backgroundColor: "#1C704B",
               },
+
+              borderColor: "#FFFFFF",
+              borderWidth: "1px",
+              borderStyle: "solid",
               textTransform: "capitalize",
             }}
           >
@@ -79,10 +88,8 @@ function Header() {
                 wrapperClass="wrapper-class"
                 visible={true}
               />
-            ) : walletAddress ? (
-              `Wallet ${walletAddress}`
             ) : (
-              "Connect MetaMask"
+              walletAddress && ` ${walletAddress}`
             )}
           </Button>
         </ConnectWrapper>

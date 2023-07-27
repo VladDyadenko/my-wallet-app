@@ -5,7 +5,6 @@ import {
   IconWallet,
   ImegeMemaMask,
   InfoMetaMask,
-  LinkDescr,
   LinkMetaMask,
   LinkToWallet,
   MetaMaskDescr,
@@ -33,16 +32,11 @@ function ModalWallet({ isOpenModal, setIsOpenModal }) {
             <ImegeMemaMask src={metaMaskImg} alt="fotoMetaMask" />
             <MetaMaskDescr>
               To continue working with the wallet, you need to install the
-              <LinkDescr
-                href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=uk"
-                target="_blank"
-              >
-                extension MetaMask
-              </LinkDescr>
+              extension MetaMask
             </MetaMaskDescr>
             <LinkMetaMask href="https://metamask.io/" target="_blank">
               <IconInfo />
-              <InfoMetaMask>What do I need MetaMask</InfoMetaMask>
+              <InfoMetaMask>What do I need MetaMask and install</InfoMetaMask>
             </LinkMetaMask>
             <LinkToWallet
               onClick={() => setIsOpenModal(false)}

@@ -1,4 +1,5 @@
 import { ethers } from "ethers";
+import { Notify } from "notiflix";
 
 export const sendEther = async (amount, receiverAddress) => {
   try {
@@ -10,9 +11,9 @@ export const sendEther = async (amount, receiverAddress) => {
       to: receiverAddress,
       value: ethers.parseEther(amount),
     });
-    console.log("Mining transaction...");
+
     const receipt = await tx.wait();
-    console.log(`Mined in block ${receipt.blockNumber}`);
+    Notify.success(`Mined in block ${receipt.blockNumber}`);
   } catch (err) {
     console.error(err);
   }
