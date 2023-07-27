@@ -40,7 +40,7 @@ function ModalWallet({ isOpenModal, setIsOpenModal }) {
             </LinkMetaMask>
             <LinkToWallet
               onClick={() => setIsOpenModal(false)}
-              href="http://localhost:5173/"
+              href="https://my-wallet-app-three.vercel.app/"
             >
               <IconWallet />I installed the extension MetaMask
             </LinkToWallet>
