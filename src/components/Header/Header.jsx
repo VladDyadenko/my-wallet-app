@@ -51,7 +51,7 @@ function Header() {
     <section>
       <HeroContainer>
         <LogoContainer>
-          <HeaderLogo>My wallet pp</HeaderLogo>
+          <HeaderLogo>My wallet app</HeaderLogo>
         </LogoContainer>
 
         <ConnectWrapper>
