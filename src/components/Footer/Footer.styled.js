@@ -10,6 +10,10 @@ export const FooterContainer = styled.div`
   padding: 5px;
   background-color: #fff;
   border-radius: 8px;
+
+  @media (min-width: 768px) {
+    margin-top: 150px;
+  }
 `;
 export const FooterDescr = styled.h4`
   font-family: Inter, system-ui;
