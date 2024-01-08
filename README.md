@@ -4,7 +4,7 @@ Welcome to the application "My wallet pp"!
 
 ## Deploy
 
-The project is posted at https://my-wallet-app-three.vercel.app/
+The project is posted at https://my-wallet-app-tau.vercel.app/
 
 ## Project Description
 
